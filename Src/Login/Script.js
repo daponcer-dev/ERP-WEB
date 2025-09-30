@@ -1,4 +1,3 @@
-<script>
 function showToast(message) {
   const toast = document.getElementById('toast');
   toast.textContent = message;
@@ -38,4 +37,3 @@ function login() {
 function socialLogin(platform) {
   showToast(`Simulación: Login con ${platform}`);
 }
-</script>
