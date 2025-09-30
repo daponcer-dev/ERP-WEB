@@ -5,40 +5,55 @@
 }
 
 #logo {
-  transition: transform 0.5s ease, opacity 0.5s;
+  transition: transform 0.6s ease, opacity 0.6s;
   transform-origin: center;
 }
 
 #muñequito.awake #logo {
   opacity: 1;
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
+/* Ojos abiertos cuando está despierto */
 #muñequito.awake #ojo-izq,
 #muñequito.awake #ojo-der {
   stroke: none;
-  fill: #333;
-  r: 3;
+  fill: #111;
+  r: 4;
 }
 
+/* Movimiento de cabeza */
 #muñequito.awake circle {
-  animation: headMove 1s ease-in-out infinite alternate;
+  animation: headBounce 1.2s ease-in-out infinite alternate;
 }
 
-@keyframes headMove {
+@keyframes headBounce {
   from { transform: translateY(0); }
-  to { transform: translateY(-3px); }
+  to { transform: translateY(-4px); }
 }
 
+/* Brazos levantando logo */
+#muñequito.awake #brazo-izq {
+  animation: brazoIzq 1s ease-in-out infinite alternate;
+}
+#muñequito.awake #brazo-der {
+  animation: brazoDer 1s ease-in-out infinite alternate;
+}
+
+@keyframes brazoIzq {
+  from { transform: rotate(0deg); transform-origin: 25px 90px; }
+  to { transform: rotate(-20deg); transform-origin: 25px 90px; }
+}
+@keyframes brazoDer {
+  from { transform: rotate(0deg); transform-origin: 95px 90px; }
+  to { transform: rotate(20deg); transform-origin: 95px 90px; }
+}
+
+/* Mensaje */
 .mascota .msg {
   margin-top: 10px;
   font-size: 14px;
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: 0.3s;
-}
-
-.mascota.awake .msg {
-  content: "🙌 Estoy ayudando...";
-  opacity: 1;
 }
