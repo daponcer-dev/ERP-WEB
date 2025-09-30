@@ -102,6 +102,7 @@ body {
   padding: 10px;
   font-size: 14px;
   width: 100%;
+  box-sizing: border-box; /* ✅ asegura que respete los bordes y padding */
 }
 
 .input-group:focus-within {
