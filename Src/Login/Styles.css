@@ -1,14 +1,3 @@
-<style>
-:root {
-  --primary:#007bff;
-  --secondary:#6c757d;
-  --success:#28a745;
-  --danger:#dc3545;
-  --muted:#999;
-}
-
-
-
 body {
   font-family: 'Montserrat', sans-serif;
   height: 100vh;
@@ -242,4 +231,3 @@ button.loading::after {
   opacity: 1;
   transform: translateY(0);
 }
-</style>
