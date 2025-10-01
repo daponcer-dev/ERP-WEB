@@ -1,14 +1,3 @@
-.mascota {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-#logo {
-  transition: transform 0.5s ease, opacity 0.5s;
-  transform-origin: center;
-}
-
 #muñequito.awake #logo {
   opacity: 1;
   transform: translateY(-5px);
@@ -16,29 +5,10 @@
 
 #muñequito.awake #ojo-izq,
 #muñequito.awake #ojo-der {
-  stroke: none;
-  fill: #333;
-  r: 3;
+  opacity: 0; /* 👁️ cierra las líneas (ojos cerrados) */
 }
 
-#muñequito.awake circle {
-  animation: headMove 1s ease-in-out infinite alternate;
-}
-
-@keyframes headMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-3px); }
-}
-
-.mascota .msg {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #fff;
-  opacity: 0.8;
-  transition: 0.3s;
-}
-
-.mascota.awake .msg {
-  content: "🙌 Estoy ayudando...";
-  opacity: 1;
+#muñequito.awake #ojo-izq-open,
+#muñequito.awake #ojo-der-open {
+  r: 3; /* 👁️ abre los ojitos circulares */
 }
