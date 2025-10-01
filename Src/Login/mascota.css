@@ -1,59 +1,44 @@
-.mascota {
-  position: relative;
-  z-index: 2;
+.yunche-wrapper {
   text-align: center;
+  margin: 20px;
 }
 
-#logo {
-  transition: transform 0.6s ease, opacity 0.6s;
-  transform-origin: center;
+.aura {
+  fill: rgba(59,130,246,0.3);
+  animation: pulse 2s infinite;
 }
 
-#muñequito.awake #logo {
-  opacity: 1;
-  transform: translateY(-8px);
+@keyframes pulse {
+  0% { r: 55; opacity: 0.3; }
+  50% { r: 65; opacity: 0.6; }
+  100% { r: 55; opacity: 0.3; }
 }
 
-/* Ojos abiertos cuando está despierto */
-#muñequito.awake #ojo-izq,
-#muñequito.awake #ojo-der {
-  stroke: none;
-  fill: #111;
-  r: 4;
+/* Estado inicial: dormido */
+.ojo {
+  stroke-linecap: round;
 }
 
-/* Movimiento de cabeza */
-#muñequito.awake circle {
-  animation: headBounce 1.2s ease-in-out infinite alternate;
+.espada {
+  transform: translateY(40px); /* abajo, no levantada */
+  transition: transform 0.5s ease;
 }
 
-@keyframes headBounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-4px); }
+ despierto .ojo-izq, 
+.despierto .ojo-der {
+  stroke: none; /* desaparece línea */
 }
 
-/* Brazos levantando logo */
-#muñequito.awake #brazo-izq {
-  animation: brazoIzq 1s ease-in-out infinite alternate;
-}
-#muñequito.awake #brazo-der {
-  animation: brazoDer 1s ease-in-out infinite alternate;
+.despierto .ojo-izq::after, 
+.despierto .ojo-der::after {
+  content: '';
 }
 
-@keyframes brazoIzq {
-  from { transform: rotate(0deg); transform-origin: 25px 90px; }
-  to { transform: rotate(-20deg); transform-origin: 25px 90px; }
-}
-@keyframes brazoDer {
-  from { transform: rotate(0deg); transform-origin: 95px 90px; }
-  to { transform: rotate(20deg); transform-origin: 95px 90px; }
+/* Con clase despierto: abrir ojos */
+.despierto .cara {
+  fill: #ffe0d2;
 }
 
-/* Mensaje */
-.mascota .msg {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #fff;
-  opacity: 0.85;
-  transition: 0.3s;
+.despierto .espada {
+  transform: translateY(0); /* levanta la espada */
 }
