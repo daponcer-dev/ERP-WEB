@@ -1,6 +1,7 @@
 .mascota {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  margin: 15px 0;
 }
 
 #logo {
@@ -27,4 +28,17 @@
 @keyframes headMove {
   from { transform: translateY(0); }
   to { transform: translateY(-3px); }
+}
+
+.mascota .msg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.mascota.awake .msg {
+  content: "🙌 Estoy ayudando...";
+  opacity: 1;
 }
