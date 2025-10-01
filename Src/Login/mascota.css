@@ -1,44 +1,25 @@
-.yunche-wrapper {
-  text-align: center;
-  margin: 20px;
+.character {
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
 }
 
-.aura {
-  fill: rgba(59,130,246,0.3);
-  animation: pulse 2s infinite;
+.yunche {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0; left: 0;
+  transition: opacity 0.5s ease;
 }
 
-@keyframes pulse {
-  0% { r: 55; opacity: 0.3; }
-  50% { r: 65; opacity: 0.6; }
-  100% { r: 55; opacity: 0.3; }
-}
+.yunche.awake { opacity: 0; }
+.yunche.sleep { opacity: 1; }
 
-/* Estado inicial: dormido */
-.ojo {
-  stroke-linecap: round;
-}
+.character.despierto .yunche.sleep { opacity: 0; }
+.character.despierto .yunche.awake { opacity: 1; }
 
-.espada {
-  transform: translateY(40px); /* abajo, no levantada */
-  transition: transform 0.5s ease;
-}
-
- despierto .ojo-izq, 
-.despierto .ojo-der {
-  stroke: none; /* desaparece línea */
-}
-
-.despierto .ojo-izq::after, 
-.despierto .ojo-der::after {
-  content: '';
-}
-
-/* Con clase despierto: abrir ojos */
-.despierto .cara {
-  fill: #ffe0d2;
-}
-
-.despierto .espada {
-  transform: translateY(0); /* levanta la espada */
+#estado {
+  margin-top: 10px;
+  font-weight: bold;
 }
