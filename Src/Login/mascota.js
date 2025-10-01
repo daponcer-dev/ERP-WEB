@@ -1,14 +1,17 @@
-const inputs = document.querySelectorAll(".input-group input");
-const muñeco = document.getElementById("muñequito");
-const mascotaMsg = document.querySelector(".mascota .msg");
+
+const inputs = document.querySelectorAll(".input-group input);
+const yunche = document.querySelector(".yunche");
+const estado = document.getElementById("estado");
 
 inputs.forEach(input => {
   input.addEventListener("focus", () => {
-    muñeco.classList.add("awake");
-    mascotaMsg.textContent = "🙌 ¡Listo para ayudarte!";
+    yunche.classList.add("despierto");
+    estado.textContent = "⚡ Despierto y listo!";
   });
   input.addEventListener("blur", () => {
-    muñeco.classList.remove("awake");
-    mascotaMsg.textContent = "💤 Estoy durmiendo...";
+    if (![...inputs].some(i => i === document.activeElement)) {
+      yunche.classList.remove("despierto");
+      estado.textContent = "😴 Durmiendo...";
+    }
   });
 });
