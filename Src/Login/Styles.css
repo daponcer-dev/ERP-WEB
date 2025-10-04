@@ -216,15 +216,16 @@ button.loading::after {
 
 
 /* Toast */
+/* Toast contenedor */
 #toast {
   position: fixed;
   top: 20px;
   right: 20px;
-  min-width: 220px;
+  min-width: 240px;
   background: #3B82F6; /* color info por defecto */
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 14px 20px 10px 20px;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   opacity: 0;
   pointer-events: none;
@@ -236,5 +237,22 @@ button.loading::after {
 #toast.show {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Texto del toast */
+#toast-message {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* Barra de progreso interna */
+#toast-progress {
+  height: 4px;
+  width: 0%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  opacity: 0;
+  transition: width 0.1s linear, opacity 0.3s;
 }
 
