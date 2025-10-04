@@ -214,20 +214,22 @@ button.loading::after {
 .social-login .twitter { background: #1DA1F2; }
 .social-login .twitter:hover { background: #0d8ddb; }
 
+
 /* Toast */
 #toast {
   position: fixed;
   top: 20px;
   right: 20px;
-  min-width: 200px;
-  background: #EF4444;
+  min-width: 220px;
+  background: #3B82F6; /* color info por defecto */
   color: #fff;
   padding: 12px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 9999;
 }
 
@@ -235,3 +237,4 @@ button.loading::after {
   opacity: 1;
   transform: translateY(0);
 }
+
