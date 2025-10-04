@@ -256,3 +256,9 @@ button.loading::after {
   transition: width 0.1s linear, opacity 0.3s;
 }
 
+#loginBtn.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
