@@ -26,7 +26,7 @@ body {
 
 /* Panel lateral decorativo */
 .decorative-panel {
-  flex: 1; /* se adapta al espacio */
+  flex: 1;
   min-width: 150px;
   max-width: 250px;
   width: 150px;
@@ -105,7 +105,7 @@ body {
   padding: 10px;
   font-size: 14px;
   width: 100%;
-  box-sizing: border-box; /* ✅ asegura que respete los bordes y padding */
+  box-sizing: border-box;
 }
 
 .input-group:focus-within {
@@ -182,7 +182,7 @@ button.loading::after {
 
 .forgot-password:hover { text-decoration: underline; }
 
-/* Redes sociales inline */
+/* Redes sociales */
 .social-login {
   display: flex;
   justify-content: space-between;
@@ -214,9 +214,7 @@ button.loading::after {
 .social-login .twitter { background: #1DA1F2; }
 .social-login .twitter:hover { background: #0d8ddb; }
 
-
 /* Toast */
-/* Toast contenedor */
 #toast {
   position: fixed;
   top: 25px;
@@ -241,14 +239,11 @@ button.loading::after {
   pointer-events: auto;
 }
 
-
-/* Texto del toast */
 #toast-message {
   font-size: 15px;
   margin-bottom: 6px;
 }
 
-/* Barra de progreso interna */
 #toast-progress {
   height: 4px;
   width: 0%;
@@ -256,16 +251,17 @@ button.loading::after {
   border-radius: 4px;
   opacity: 0;
   transition: width 0.1s linear, opacity 0.3s;
+  will-change: width; /* ✅ mejora rendimiento */
 }
 
+/* Botón de login deshabilitado */
 #loginBtn.loading {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-
-/* === OVERLAY GLOBAL DE CARGA === */
+/* Overlay de carga */
 #loadingOverlay {
   position: fixed;
   inset: 0;
@@ -286,8 +282,15 @@ button.loading::after {
   pointer-events: all;
 }
 
-/* Spinner central del overlay */
-#loadingOverlay .overlay-spinner {
+/* Spinner alternativo (JS usa .spinner) ✅ compatibilidad */
+#loadingOverlay .loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#loadingOverlay .spinner {
   width: 55px;
   height: 55px;
   border: 5px solid #3B82F6;
@@ -297,17 +300,27 @@ button.loading::after {
   margin-bottom: 15px;
 }
 
-/* Texto dentro del overlay */
-#loadingOverlay .message {
+#loadingOverlay p {
   color: #1E3A8A;
   font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.3px;
 }
 
-/* === EFECTO FADE DE LOGIN === */
+/* Efecto de salida */
 .fade-out {
   opacity: 0;
   transform: scale(0.97);
   transition: all 0.6s ease;
+}
+
+/* ✅ Toast responsive */
+@media (max-width: 600px) {
+  #toast {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 0);
+    width: 90%;
+    max-width: none;
+  }
 }
